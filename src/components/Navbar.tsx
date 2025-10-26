@@ -1,9 +1,11 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, useSearchParams } from 'react-router-dom';
 
 const isActiveClass = ({ isActive }: { isActive: boolean }) =>
   isActive ? 'navbar-item has-background-grey-lighter' : 'navbar-item';
 
 export const Navbar = () => {
+  const [searchParams] = useSearchParams();
+
   return (
     <nav
       data-cy="nav"
@@ -17,7 +19,11 @@ export const Navbar = () => {
             Home
           </NavLink>
 
-          <NavLink aria-current="page" className={isActiveClass} to="/people">
+          <NavLink
+            aria-current="page"
+            className={isActiveClass}
+            to={{ pathname: "/people", search: searchParams.toString()}}
+          >
             People
           </NavLink>
         </div>

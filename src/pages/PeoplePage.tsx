@@ -85,7 +85,7 @@ export const PeoplePage = () => {
                 </p>
               )}
 
-              {!filteredPeople.length && (
+              {!filteredPeople.length && people.length > 0 && (
                 <p>There are no people matching the current search criteria</p>
               )}
 
